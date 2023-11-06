@@ -31,7 +31,7 @@ function App() {
     }
   }
   const [strikenCells, setStrikenCells] = useState<number[][]>([]);
-  const winningStrike = rows < 5 ? 3 : 5;
+  const winningStrikes = rows > 5 ? 5 : rows;
 
   function checkGameStatus(
     b: CellValue[][],
@@ -54,7 +54,7 @@ function App() {
           strike = 0;
         }
 
-        if (strike === winningStrike) {
+        if (strike === winningStrikes) {
           setStrikePattern("horizontal");
           return "win";
         }
@@ -70,7 +70,7 @@ function App() {
           strike = 0;
         }
 
-        if (strike === winningStrike) {
+        if (strike === winningStrikes) {
           setStrikePattern("vertically");
           return "win";
         }
@@ -97,7 +97,7 @@ function App() {
             winningCells = [];
           }
 
-          if (strike === winningStrike) {
+          if (strike === winningStrikes) {
             setStrikePattern("diagonal-top-left-bottom-right");
             setStrikenCells(winningCells);
             return "win";
@@ -125,7 +125,7 @@ function App() {
             winningCells = [];
           }
 
-          if (strike === winningStrike) {
+          if (strike === winningStrikes) {
             setStrikePattern("diagonal-top-right-bottom-left");
             setStrikenCells(winningCells);
             return "win";
