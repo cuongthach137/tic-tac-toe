@@ -191,6 +191,8 @@ function App() {
           onChange={(e) => {
             setRows(Number(e.target.value));
             createBoard(Number(e.target.value));
+            setStrikePattern("");
+            setStrikenCells([]);
           }}
         />
       </div>
