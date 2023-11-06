@@ -40,38 +40,47 @@ function App() {
     let cellMarked = 0;
     for (let rowIndex in b) {
       let strike = 0;
-      const row = b[rowIndex];
 
+      const row = b[rowIndex];
+      let winningCells = [];
       //check horizontally
       for (let cellIndex in row) {
         const cell = row[cellIndex];
+
         if (cell) {
           cellMarked++;
         }
         if (cell === player) {
           strike++;
+          winningCells.push([Number(rowIndex), Number(cellIndex)]);
         } else {
           strike = 0;
+          winningCells = [];
         }
 
         if (strike === winningStrikes) {
           setStrikePattern("horizontal");
+          setStrikenCells(winningCells);
           return "win";
         }
       }
       strike = 0;
+      winningCells = [];
       //check vertically
       for (let i = 0; i < rows; i++) {
         const cell = b[i][rowIndex];
 
         if (cell === player) {
           strike++;
+          winningCells.push([Number(rowIndex), i]);
         } else {
           strike = 0;
+          winningCells = [];
         }
 
         if (strike === winningStrikes) {
           setStrikePattern("vertically");
+          setStrikenCells(winningCells);
           return "win";
         }
       }

@@ -59,6 +59,11 @@
   position: absolute;
 }
 
+.horizontal {
+  top: 0;
+  left: 0;
+}
+
 .horizontal::after {
   position: absolute;
   content: "";
