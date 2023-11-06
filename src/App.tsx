@@ -183,7 +183,6 @@ function App() {
     setGameStatus("continue");
   }
 
-  console.log("strikencells", strikenCells);
   return (
     <div className="App">
       <div>
@@ -199,6 +198,14 @@ function App() {
             reset();
           }}
         />
+        <button
+          onClick={() => {
+            reset();
+            createBoard(rows);
+          }}
+        >
+          Restart
+        </button>
       </div>
       <div className="board" style={{ width: rows * 72 }}>
         {renderBoard()}
