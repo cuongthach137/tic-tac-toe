@@ -177,6 +177,11 @@ function App() {
       })
     );
   }
+  function reset() {
+    setStrikePattern("");
+    setStrikenCells([]);
+    setGameStatus("continue");
+  }
 
   console.log("strikencells", strikenCells);
   return (
@@ -191,8 +196,7 @@ function App() {
           onChange={(e) => {
             setRows(Number(e.target.value));
             createBoard(Number(e.target.value));
-            setStrikePattern("");
-            setStrikenCells([]);
+            reset();
           }}
         />
       </div>
